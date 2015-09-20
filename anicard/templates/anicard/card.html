@@ -1,0 +1,28 @@
+{% extends 'base_html.html' %}
+{% load static %}
+{% load cache %}
+{% block titleextra %} - Member's Card{% endblock %}
+{% block main %}
+<div class="FrontPage">
+  <div class="row">
+    <div class="col-md-2">
+      <dl><dt>Design:</dt><dd><img src="{{card.design}}" alt="Card Design" class="img-rounded" ></dd></dl>
+    </div>
+    <div class="col-md-10">
+      <dl class="dl-horizontal">
+        <dt>Start date:</dt><dd>{{card.year_start}}</dd>
+        <dt>End date:</dt><dd>{{card.year_end}}</dd>
+        <dt>Request:</dt>
+        <dd><a href="/card/request/">Here</a></dd>
+      </dl>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extraScripts %}
+<script>
+var menuItem = document.getElementById("menu_accounts_card");
+menuItem.className = "active";
+</script>
+{% endblock %}

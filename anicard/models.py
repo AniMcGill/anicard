@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-class MembershipSpan(models.Model):
+class MembershipCard(models.Model):
     design = models.ImageField()
     year_start = models.DateField()
     year_end = models.DateField()
@@ -18,9 +18,10 @@ class MembershipSpan(models.Model):
 
 class CardRequest(models.Model):
     user = models.ForeignKey(User)
-    year = models.ForeignKey(MembershipSpan)
+    year = models.ForeignKey(MembershipCard)
     printed = models.BooleanField(default=False)
     paid = models.BooleanField(default=False)
+    delivered = models.BooleanField(default=False)
     lost = models.BooleanField(default=False)
 
     def name(self):

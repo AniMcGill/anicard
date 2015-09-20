@@ -1,0 +1,36 @@
+{% extends 'base_html.html' %}
+{% load static %}
+{% load cache %}
+{% block titleextra %} - Member's Card - Request{% endblock %}
+{% block main %}
+<div class="FrontPage">
+	<form method="post" class="form-horizontal" action="/card/request/">
+		<fieldset>
+			<legend>Request a Member's Card</legend>
+			<p>Please confirm your name.</p>
+			{% csrf_token %}
+			<div class="control-group{% if form.first_name.errors %} has-error{% endif %}">
+				<label class="control-label" for="id_first_name">{{ form.first_name.label }}</label>
+				<div class="controls">
+					{{ form.first_name }}
+				</div>
+				<span class="form-error">{{ form.first_name.errors }}</span>
+			</div>
+			<div class="control-group{% if form.last_name.errors %} has-error{% endif %}">
+				<label class="control-label" for="id_last_name">{{ form.last_name.label }}</label>
+				<div class="controls">
+					{{ form.last_name }}
+				</div>
+				<span class="form-error">{{ form.last_name.errors }}</span>
+			</div>
+		</fieldset>
+	</form>  
+</div>
+{% endblock %}
+
+{% block extraScripts %}
+<script>
+var menuItem = document.getElementById("menu_accounts_card");
+menuItem.className = "active";
+</script>
+{% endblock %}

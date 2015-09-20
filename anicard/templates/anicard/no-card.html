@@ -1,0 +1,17 @@
+{% extends 'base_html.html' %}
+{% load static %}
+{% load cache %}
+{% block titleextra %} - Member's Card{% endblock %}
+{% block main %}
+<div class="FrontPage">
+  <h1>No Card Available</h1>
+  <p>Sorry, we don't currently have a card available. Register for our mailing list to be contacted when paid registration is available again.</p>
+</div>
+{% endblock %}
+
+{% block extraScripts %}
+<script>
+var menuItem = document.getElementById("menu_accounts_card");
+menuItem.className = "active";
+</script>
+{% endblock %}
