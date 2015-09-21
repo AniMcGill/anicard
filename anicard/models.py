@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class MembershipCard(models.Model):
-    design = models.ImageField()
+    design = models.ImageField(upload_to="cards/")
     year_start = models.DateField()
     year_end = models.DateField()
     open = models.BooleanField(default=True)
