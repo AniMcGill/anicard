@@ -6,7 +6,7 @@ from anicard.models import CardRequest, MembershipCard
 class CardRequestAdmin(admin.ModelAdmin):
     list_display = ('user', 'year', 'paid', 'printed', 'delivered', 'lost')
     list_filter = ('year', 'paid', 'printed', 'lost')
-    fields = ('user', 'year', ('paid', 'printed'), 'lost')
+    fields = ('user', 'year', ('paid', 'printed', 'delivered'), 'lost')
 
 
 @admin.register(MembershipCard)
