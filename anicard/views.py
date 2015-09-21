@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render_to_response
+from django.template import RequestContext
+from django.http import HttpResponseRedirect
 from django.views.generic import ListView, DetailView
 from anicard.models import MembershipCard, CardRequest
 from anicard.forms import CardReqForm
