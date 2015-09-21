@@ -20,8 +20,8 @@ def memberCardView(request):
 
 def getCurrentCard():
     now = timezone.now()
-    options = MembershipCard.objects.filter(open=True, year_start__lte=now, year_start__gte=now)
-    if options.count() < 1:
+    options = MembershipCard.objects.filter(open=True, year_start__lte=now, year_end__gte=now)
+    if len(options) < 1:
         return None
     else:
         return options[0]
