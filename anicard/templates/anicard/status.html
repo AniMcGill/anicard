@@ -1,0 +1,30 @@
+{% extends 'base_html.html' %}
+{% load static %}
+{% load cache %}
+{% block titleextra %} - Member's Card Status{% endblock %}
+{% block main %}
+<div class="FrontPage">
+  <div class="row">
+    <div class="col-md-2">
+      <dl><dt>Design:</dt><dd><img src="{{card.year.design.url}}" alt="Card Design" class="img-rounded members-card" ></dd></dl>
+    </div>
+    <div class="col-md-10">
+      <dl class="dl-horizontal">
+        <dt>Start date:</dt><dd>{{card.year.year_start}}</dd>
+        <dt>End date:</dt><dd>{{card.year.year_end}}</dd>
+	<dt>Printed:</dt><dd><span class="glyphicon {% if card.printed %}glyphicon-ok{% else  %}glyphicon-remove{% endif %}" aria-hidden="true"></span></dd>
+	<dt>Paid:</dt><dd><span class="glyphicon {% if card.paid %}glyphicon-ok{% else  %}glyphicon-remove{% endif %}" aria-hidden="true"></span></dd>
+	<dt>Picked up:</dt><dd><span class="glyphicon {% if card.delivered %}glyphicon-ok{% else  %}glyphicon-remove{% endif %}" aria-hidden="true"></span></dd>
+	<dt>Lost:</dt><dd><span class="glyphicon {% if card.lost %}glyphicon-ok{% else  %}glyphicon-remove{% endif %}" aria-hidden="true"></span></dd>
+      </dl>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extraScripts %}
+<script>
+var menuItem = document.getElementById("menu_accounts_card");
+menuItem.className = "active";
+</script>
+{% endblock %}
