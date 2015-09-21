@@ -32,7 +32,7 @@ def getUsersCard(usr):
     if usr.is_anonymous():
         return None
     now = timezone.now()
-    options = MembershipCard.objects.filter(user=usr, year_start__lte=now, year_end__gte=now)
+    options = CardRequest.objects.filter(user=usr, year__year_start__lte=now, year__year_end__gte=now)
     if len(options) < 1:
         return None
     else:
