@@ -6,8 +6,11 @@ from anicard.models import CardRequest, MembershipCard
 class CardRequestAdmin(admin.ModelAdmin):
     list_display = ('user', 'year', 'paid', 'printed', 'delivered', 'lost')
     list_filter = ('year', 'paid', 'printed', 'lost')
-    fields = ('user', 'user__get_full_name', 'year', ('paid', 'printed', 'delivered'), 'lost')
-    readonly_fields = ('year', 'user__get_full_name')
+    fields = ('user', 'name', 'year', ('paid', 'printed', 'delivered'), 'lost')
+    readonly_fields = ('year', 'name')
+    
+    def name(self, instance):
+        return instance.user.get_full_name()
 
 
 @admin.register(MembershipCard)
